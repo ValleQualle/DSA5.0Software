@@ -1,9 +1,29 @@
 package org.example;
 
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+import org.example.mongodb.Connection;
+
+import java.util.Collection;
+
 public class Main {
     public static void main(String[] args) {
-        Character c = new Character("Valle", 24);
-        System.out.println(c.getName());
+        // Verbindung zur DSA5Database aufbauen
+        Connection con = new Connection();
+        MongoDatabase db = con.getDatabase();
+
+        // Einen Character erstellen
+        Character kudu = new Character("Kudu", 24, "Halbelf");
+        // Den Character in die Datenbank einfügen
+        db.getCollection("Character").insertOne(kudu.toDocument());
+
+        FindIterable<Document> dokumente = db.getCollection("Character").find().projection(new Document("_id", 0));
+            for (Document doc : dokumente) {
+                System.out.println(doc.toJson());
+            }
+
     }
 
     /*
