@@ -18,7 +18,6 @@ public class Connection {
     MongoCollection<Document> collection;
 
     public Connection() {
-
             this.mongoClient = MongoClients.create("mongodb://localhost:27017");
             this.database = mongoClient.getDatabase("DSA5Database");
     }

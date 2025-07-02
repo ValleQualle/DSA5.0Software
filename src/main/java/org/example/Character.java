@@ -1,6 +1,7 @@
 package org.example;
 
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 public class Character {
@@ -8,12 +9,19 @@ public class Character {
     private String name;
     private int age;
     private String spezies;
+    MongoCollection<Document> inventory;
 
 
-    public Character(String n, int a, String s) {
+    private Character(String n, int a, String s, MongoCollection<Document> i) {
         this.name = n;
         this.age = a;
         this.spezies = s;
+        this.inventory = i;
+    }
+
+    public static Character createCharacter(String n, int a, String s, MongoDatabase db) {
+        MongoCollection<Document> i = db.getCollection("inventory");
+        return new Character(n, a, s, i);
     }
 
     // getter

@@ -3,27 +3,46 @@ package org.example;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import org.bson.Document;
 import org.example.mongodb.Connection;
+import org.example.Character;
 
 import java.util.Collection;
 
-public class Main {
+// zum Ausführen der Main: "mvn clean javafx:run" in Terminal eingeben
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        Label label = new Label("Hallo JavaFX!");
+        StackPane root = new StackPane(label);
+        Scene scene = new Scene(root, 300, 200);
+
+        primaryStage.setTitle("JavaFX Test");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
     public static void main(String[] args) {
+        launch(args);
         // Verbindung zur DSA5Database aufbauen
         Connection con = new Connection();
         MongoDatabase db = con.getDatabase();
 
-        // Einen Character erstellen
-        Character kudu = new Character("Kudu", 24, "Halbelf");
+/*        // Einen Character erstellen
+        Character kudu = Character.createCharacter("Waldemar", 65, "Orc", db);
         // Den Character in die Datenbank einfügen
         db.getCollection("Character").insertOne(kudu.toDocument());
 
         FindIterable<Document> dokumente = db.getCollection("Character").find().projection(new Document("_id", 0));
-            for (Document doc : dokumente) {
-                System.out.println(doc.toJson());
-            }
-
+        for (Document doc : dokumente) {
+            System.out.println(doc.toJson());
+        }*/
     }
 
     /*
