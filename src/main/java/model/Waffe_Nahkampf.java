@@ -1,4 +1,6 @@
-public class Waffe_Nahkampf extends Gegenstand{
+package model;
+
+public class Waffe_Nahkampf extends Gegenstand {
 
     private String waffentyp;
     private String tp;

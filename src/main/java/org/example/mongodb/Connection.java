@@ -13,8 +13,8 @@ public class Connection {
     // Diese Klasse baut eine Verbindung zu der MongoDB auf,
     // um auf die darin gespeicherten Daten zugreifen zu können.
 
-    MongoClient mongoClient;
-    MongoDatabase database;
+    private static MongoClient mongoClient;
+    private static MongoDatabase database;
     MongoCollection<Document> collection;
 
     public Connection() {
@@ -22,7 +22,10 @@ public class Connection {
             this.database = mongoClient.getDatabase("DSA5Database");
     }
 
-    public MongoDatabase getDatabase() {
-        return this.database;
+    public static MongoDatabase getDatabase() {
+        if (mongoClient == null) {
+            mongoClient = MongoClients.create("mongodb://localhost:27017");
+        }
+        return database;
     }
 }

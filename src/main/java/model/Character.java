@@ -1,7 +1,9 @@
-package org.example;
+package model;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import org.bson.types.ObjectId;
+import org.example.mongodb.Connection;
 import org.bson.Document;
 
 public class Character {
@@ -23,6 +25,8 @@ public class Character {
         MongoCollection<Document> i = db.getCollection("inventory");
         return new Character(n, a, s, i);
     }
+
+
 
     // getter
     public String getName() {

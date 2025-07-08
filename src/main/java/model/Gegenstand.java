@@ -1,3 +1,5 @@
+package model;
+
 public abstract class Gegenstand {
     private String kategorie;
     private String name;
