@@ -1,26 +1,19 @@
 package controller;
 
+import com.mongodb.client.MongoDatabase;
 import model.Character;
+import org.bson.Document;
+import org.bson.types.ObjectId;
+import org.example.mongodb.Connection;
 import view.V_CharacterView;
 
 public class C_CharacterController {
 
     private final V_CharacterView view;
+    private final C_CharacterController controller;
 
-    public C_CharacterController(V_CharacterView view) {
-        this.view = view;
+    public C_CharacterController(C_CharacterController controller, V_CharacterView view) {
 
-        // ActionListener auf den Button im View
-        /*view.fetchButton.setOnAction(e -> {
-            String id = view.idInput.getText().trim();
-            if (character != null) {
-                view.nameLabel.setText("Name: " + character.getName());
-                view.speziesLabel.setText("Spezies " + character.getSpezies());
-                view.ageLabel.setText("Alter: " + character.getAge());
-            } else {
-                view.nameLabel.setText("Kein Karakter gefunden.");
-                view.ageLabel.setText("");
-            }
-        });*/
     }
+
 }
