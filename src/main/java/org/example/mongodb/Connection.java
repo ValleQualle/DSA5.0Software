@@ -25,6 +25,7 @@ public class Connection {
     public static MongoDatabase getDatabase() {
         if (mongoClient == null) {
             mongoClient = MongoClients.create("mongodb://localhost:27017");
+            database = mongoClient.getDatabase("DSA5Database");
         }
         return database;
     }

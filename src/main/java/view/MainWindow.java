@@ -1,3 +1,4 @@
+/*
 package view;
 
 import javafx.application.Application;
@@ -12,18 +13,20 @@ public class MainWindow extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        V_CharacterView view = new V_CharacterView();
+        V_Character view = new V_Character();
 
         Scene scene = new Scene(view, 300, 200);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
+*/
 /*    public characterView() {
         idInput.setPromptText("Character-ID eingeben");
         VBox vbox = new VBox(9);
         vbox.getChildren().addAll(idInput, fetchButton, nameLabel, ageLabel);
-    }*/
+    }*//*
+
 
 
 
@@ -41,3 +44,4 @@ public class MainWindow extends Application {
         stage.show();
     }
 }
+*/

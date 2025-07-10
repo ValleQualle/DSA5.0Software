@@ -1,0 +1,10 @@
+Hier liste ich die Befehle zur Nutzung und Verwaltung von MongoDB auf.
+Die Befehle sind im Terminal auszuführen. Ich werde das, was im Terminal
+eingegeben werden muss in '' setzen, um Verwirrung zu vermeiden.
+
+    MongoDB (mongosh) nutzbar machen: 'mongosh'
+    Existierende DBs anzeigen: 'show dbs'
+    DB auswählen: 'use [name der DB]'
+    Alle Collections einer DB anzeigen (dafür muss die gewünschte DB
+        ausgewählt worden sein): 'show collections'
+    Alle Einträge einer Collection in .json Format im Terminal anzeigen: 'db.[name d. collection].find()'
