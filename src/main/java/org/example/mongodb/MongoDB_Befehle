@@ -8,3 +8,11 @@ eingegeben werden muss in '' setzen, um Verwirrung zu vermeiden.
     Alle Collections einer DB anzeigen (dafür muss die gewünschte DB
         ausgewählt worden sein): 'show collections'
     Alle Einträge einer Collection in .json Format im Terminal anzeigen: 'db.[name d. collection].find()'
+    Felder einer Collection umbenennen: 'db.Character.updateOne(
+                                           { name: "Kudu" },
+                                           { $rename: { "spezies": "speziesTyp" } }
+                                         )'
+    Attribut eines Feldes umbenennen: 'db.Character.updateOne(
+                                         { name: "Waldemar" },
+                                         { $set: { spezies: "Ork" } }
+                                       )'

@@ -71,6 +71,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
+                    <encoding>UTF-8</encoding>
                     <source>${maven-compiler-plugin.source}</source>
                     <target>${maven-compiler-plugin.target}</target>
                 </configuration>
@@ -91,6 +92,9 @@
                 <version>0.0.8</version>
                 <configuration>
                     <mainClass>Main</mainClass>
+                    <options>
+                        <option>-Dfile.encoding=UTF-8</option>
+                    </options>
                 </configuration>
                 <executions>
                     <execution>

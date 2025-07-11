@@ -21,13 +21,24 @@ public class R_Character {
             Document doc = collection.find(new Document("_id", new ObjectId(id))).first();
             if (doc != null) {
                 return M_Character.createCharacter(
-                        doc.getString("name"),
-                        doc.getInteger("age", 0),
-                        doc.getString("spezies")
+                    doc.getString("name"),
+                    doc.getString("alter"),
+                    doc.getString("geschlecht"),
+                    doc.getString("haarfarbe"),
+                    doc.getString("spezies"),
+                    doc.getString("augenfarbe"),
+                    doc.getString("kultur"),
+                    doc.getString("groesse"),
+                    doc.getString("profession"),
+                    doc.getInteger("gewicht", 0),
+                    doc.getString("sozialstatus"),
+                    doc.getString("characteristika"),
+                    doc.getString("heimatort"),
+                    doc.getString("familie")
                 );
             }
         } catch (IllegalArgumentException e) {
-            System.out.println("Ungültige ID: + id");
+            System.out.println("Ungültige ID: " + id);
         }
         return null;
     }
