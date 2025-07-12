@@ -15,7 +15,7 @@ public class R_Character {
     }
 
     // DB zugriff mit Abfrage der Daten eines bestimmten Characters
-    public M_Character findById(String id) {
+    public M_Character findCharacterById(String id) {
         try {
             MongoCollection<Document> collection = database.getCollection("Character");
             Document doc = collection.find(new Document("_id", new ObjectId(id))).first();
@@ -41,5 +41,26 @@ public class R_Character {
             System.out.println("Ungültige ID: " + id);
         }
         return null;
+    }
+
+    public void findEigenschaftenByCharacter(M_Character character, String id) {
+        try {
+            MongoCollection<Document> collection = database.getCollection("Eigenschaften");
+            Document doc = collection.find(new Document("characterID", id)).first();
+            if (doc != null) {
+                character.setAllEigenschaften(
+                        doc.getInteger("Mut", -1),
+                        doc.getInteger("Klugheit", -1),
+                        doc.getInteger("Intuition", -1),
+                        doc.getInteger("Charisma", -1),
+                        doc.getInteger("Fingerfertigkeit", -1),
+                        doc.getInteger("Gewandheit", -1),
+                        doc.getInteger("Konstitution", -1),
+                        doc.getInteger("Koerperkraft", -1)
+                );
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Character mit id " + id + " existiert noch nicht.");
+        }
     }
 }

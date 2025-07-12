@@ -16,8 +16,11 @@ public class C_Character {
         // Button mit EventHandler verknüpfen
         view.fetchButton.setOnAction(event -> {
             String id = view.idInput.getText().trim();
-            M_Character character = repo.findById(id);
+            M_Character character = repo.findCharacterById(id);
+            repo.findEigenschaftenByCharacter(character, id);
             if (character != null) {
+
+                // Hier werden die Persönlichen Daten des Characters geholt
                 view.nameLabel.setText("Name: " + character.getName());
                 view.alterLabel.setText("Alter: " + character.getAlter());
                 view.geschlechtLabel.setText("Geschlecht: " + character.getGeschlecht());
@@ -32,6 +35,16 @@ public class C_Character {
                 view.characteristikaLabel.setText("Characteristika: " + character.getCharacteristika());
                 view.heimatortLabel.setText("Heimatort: " + character.getHeimatort());
                 view.familieLabel.setText("Familie: " + character.getFamilie());
+
+                // Hier werden die Eigenschaften des Characters geladen
+                view.mutLabel.setText("Mut: " + character.getMut());
+                view.klugheitLabel.setText("Klugheit " + character.getKlugheit());
+                view.intuitionLabel.setText("Intuition: " + character.getIntuition());
+                view.charismaLabel.setText("Charisma: " + character.getCharisma());
+                view.fingerfertigkeitLabel.setText("Fingerfertigkeit: " + character.getFingerfertigkeit());
+                view.gewandheitLabel.setText("Gewandheit: " + character.getGewandheit());
+                view.konstitutionLabel.setText("Konstitution " + character.getKonstitution());
+                view.koerperkraftLabel.setText("Körperkraft: " + character.getKoerperkraft());
             } else {
                 view.nameLabel.setText("Character nicht gefunden.");
                 view.alterLabel.setText("");
@@ -47,6 +60,15 @@ public class C_Character {
                 view.characteristikaLabel.setText("");
                 view.heimatortLabel.setText("");
                 view.familieLabel.setText("");
+
+                view.mutLabel.setText("");
+                view.klugheitLabel.setText("");
+                view.intuitionLabel.setText("");
+                view.charismaLabel.setText("");
+                view.fingerfertigkeitLabel.setText("");
+                view.gewandheitLabel.setText("");
+                view.konstitutionLabel.setText("");
+                view.koerperkraftLabel.setText("");
             }
         });
     }
