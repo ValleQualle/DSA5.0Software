@@ -19,7 +19,7 @@ public class Main extends Application {
         R_Character repo = new R_Character(Connection.getDatabase());
         C_Character controller = new C_Character(view, repo);
 
-        Scene scene = new Scene(view, 300, 200);
+        Scene scene = new Scene(view.getView(), 300, 200);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Character View");
         primaryStage.show();
