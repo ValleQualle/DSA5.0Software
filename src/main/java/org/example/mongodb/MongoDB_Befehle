@@ -16,3 +16,4 @@ eingegeben werden muss in '' setzen, um Verwirrung zu vermeiden.
                                          { name: "Waldemar" },
                                          { $set: { spezies: "Ork" } }
                                        )'
+        Dieses Vorgehen kann auch genutzt werden, um ein neues Feld in eine Collection hinzuzufügen.
