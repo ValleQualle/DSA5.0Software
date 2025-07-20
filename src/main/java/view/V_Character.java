@@ -8,11 +8,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class V_Character {
-    private final VBox root; /// Wird am Ende des Konstruktors gesetzt & kann auch zu Pane, StackPane etc. geändert werden
+    private final VBox root; // Wird am Ende des Konstruktors gesetzt & kann auch zu Pane, StackPane etc. geändert werden
 
     // Angaben zu Persönlichen Daten
     public TextField idInput = new TextField();
-    public Button fetchButton = new Button("Character laden");
+    public Button fetchCharacterIdButton = new Button("Character laden");
+    public Button importCharacterButton = new Button("Importiere einen Character");
     public Label nameLabel;
     public Label alterLabel;
     public Label geschlechtLabel;
@@ -71,13 +72,13 @@ public class V_Character {
         VBox vBoxEigenschaften = new VBox(10); // Spalte für die Eigenschaften
 
         idInput.setPromptText("Character-ID eingeben");
-        vBoxCharacter.getChildren().addAll(idInput, fetchButton, nameLabel, alterLabel, geschlechtLabel,
+        vBoxCharacter.getChildren().addAll(idInput, fetchCharacterIdButton, nameLabel, alterLabel, geschlechtLabel,
                 haarfarbeLabel, speziesLabel, augenfarbeLabel, kulturLabel, groesseLabel,
                 professionLabel, gewichtLabel, sozialstatusLabel, characteristikaLabel,
                 heimatortLabel, familieLabel);
         vBoxEigenschaften.getChildren().addAll(mutLabel, klugheitLabel, intuitionLabel, charismaLabel,
                 fingerfertigkeitLabel, gewandheitLabel, konstitutionLabel, koerperkraftLabel);
-        hBox.getChildren().addAll(vBoxCharacter, vBoxEigenschaften);
+        hBox.getChildren().addAll(vBoxCharacter, vBoxEigenschaften, importCharacterButton);
 
         root = new VBox(hBox);
     }

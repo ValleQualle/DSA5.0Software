@@ -6,6 +6,8 @@ import model.M_Character;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import java.util.List;
+
 public class R_Character {
 
     private final MongoDatabase database;
@@ -63,4 +65,6 @@ public class R_Character {
             System.out.println("Character mit id " + id + " existiert noch nicht.");
         }
     }
+
+
 }

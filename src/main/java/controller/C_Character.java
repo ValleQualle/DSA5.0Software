@@ -1,8 +1,11 @@
 package controller;
 
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import model.M_Character;
 import repository.R_Character;
 import view.V_Character;
+import view.V_ImportCharacter;
 
 public class C_Character {
 
@@ -14,7 +17,7 @@ public class C_Character {
         this.repo = repo;
 
         // Button mit EventHandler verknüpfen
-        view.fetchButton.setOnAction(event -> {
+        view.fetchCharacterIdButton.setOnAction(event -> {
             String id = view.idInput.getText().trim();
             M_Character character = repo.findCharacterById(id);
             repo.findEigenschaftenByCharacter(character, id);
@@ -70,6 +73,15 @@ public class C_Character {
                 view.konstitutionLabel.setText("");
                 view.koerperkraftLabel.setText("");
             }
+        });
+
+        view.importCharacterButton.setOnAction(event -> {
+                V_ImportCharacter importView = new V_ImportCharacter();
+                Scene scene = new Scene(importView.getView(), 300, 100);
+                Stage stage = new Stage();
+                stage.setTitle("Character importieren");
+                stage.setScene(scene);
+                stage.show();
         });
     }
 }
