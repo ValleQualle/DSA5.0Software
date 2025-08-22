@@ -17,6 +17,7 @@ public class C_Character {
         this.repo = repo;
 
         // Button mit EventHandler verknüpfen
+/*
         view.fetchCharacterIdButton.setOnAction(event -> {
             String id = view.idInput.getText().trim();
             M_Character character = repo.findCharacterById(id);
@@ -74,14 +75,15 @@ public class C_Character {
                 view.koerperkraftLabel.setText("");
             }
         });
+*/
 
-        view.importCharacterButton.setOnAction(event -> {
+/*        view.importCharacterButton.setOnAction(event -> {
                 V_ImportCharacter importView = new V_ImportCharacter();
                 Scene scene = new Scene(importView.getView(), 300, 100);
                 Stage stage = new Stage();
                 stage.setTitle("Character importieren");
                 stage.setScene(scene);
                 stage.show();
-        });
+        });*/
     }
 }
